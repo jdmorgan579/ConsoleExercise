@@ -20,7 +20,7 @@ namespace ConsoleExercise
 
             string cleanestString = Regex.Replace(cleanString, " ", "");
 
-            string reverseString = new string(cleanestString.ToCharArray().Reverse().ToArray());
+            string reverseString = new string(cleanestString.Reverse().ToArray());
 
             Console.WriteLine(reverseString);
             Console.ReadLine();
