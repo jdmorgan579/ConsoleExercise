@@ -11,7 +11,10 @@ namespace ConsoleExercise
     {
         static void Main(string[] args)
         {
-            string randomString = "kd$2 23re034()9";
+            Console.Write("Type whatever you want and I'll remove the special characters and reverse it!");
+            Console.WriteLine();
+
+            string randomString = Console.ReadLine();
 
             string cleanString = Regex.Replace(randomString, "[^A-Za-z0-9 ]", "");
 
