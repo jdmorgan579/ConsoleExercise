@@ -11,21 +11,32 @@ namespace ConsoleExercise
     {
         static void Main(string[] args)
         {
-            Console.Write("Type whatever you want and I'll remove the special characters and reverse it!");
+            string input;
+            if (args.Length > 0) //Did someone pass in an argument using the command line?
+            {
+                input = CommandLine.GetInputFromCommandLine(args);
+                Console.Write(input);
+            }
+            else
+            {
+                Console.WriteLine("Please enter a string!");
+            }
+            //keep doing what you were doing...
+            
             Console.WriteLine();
 
             string randomString = Console.ReadLine();
 
-            string cleanString = Regex.Replace(randomString, "[^A-Za-z0-9 ]", "");
+            string cleanString = Regex.Replace(randomString, "[^A-Za-z0-9]", "");
 
-            string cleanestString = Regex.Replace(cleanString, " ", "");
-
-            string reverseString = new string(cleanestString.Reverse().ToArray());
+            string reverseString = new string(cleanString.Reverse().ToArray());
 
             Console.WriteLine(reverseString);
             Console.ReadLine();
 
         }
+
     }
+   
 }
 '\n'
