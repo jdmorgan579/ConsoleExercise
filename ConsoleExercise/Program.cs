@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ConsoleExercise
 {
@@ -11,32 +8,29 @@ namespace ConsoleExercise
     {
         static void Main(string[] args)
         {
-            string input;
-            if (args.Length > 0) //Did someone pass in an argument using the command line?
+            var input = GetInput(args);
+            var cleanString = Regex.Replace(input, "[^A-Za-z0-9]", "");
+            var reverseString = new string(cleanString.Reverse().ToArray());
+
+            Console.WriteLine(reverseString);
+            Console.ReadLine();
+        }
+
+        public static string GetInput(string[] args)
+        {
+            string input; 
+            if (args.Length > 0)
             {
-                input = CommandLine.GetInputFromCommandLine(args);
-                Console.Write(input);
+                input = args[0];
             }
             else
             {
                 Console.WriteLine("Please enter a string!");
+                input = Console.ReadLine();
             }
-            //keep doing what you were doing...
-            
-            Console.WriteLine();
 
-            string randomString = Console.ReadLine();
-
-            string cleanString = Regex.Replace(randomString, "[^A-Za-z0-9]", "");
-
-            string reverseString = new string(cleanString.Reverse().ToArray());
-
-            Console.WriteLine(reverseString);
-            Console.ReadLine();
-
+            return input;
         }
-
     }
    
 }
-'\n'
